@@ -46,7 +46,7 @@ export default function SignIn() {
               <Text style={styles.label}>Password</Text>
 
               <TouchableOpacity>
-                <Text style={styles.forgot}>Forgot?</Text>
+                <Link href="/(tabs)/home" style={styles.forgot}>Forgot?</Link>
               </TouchableOpacity>
             </View>
 
