@@ -1,3 +1,4 @@
+import "../../../global.css"
 import { ScrollView, View } from "react-native";
 import Header from "../../../components/DashboardHome/Header";
 import SummaryGrid from "../../../components/DashboardHome/SummaryGrid";

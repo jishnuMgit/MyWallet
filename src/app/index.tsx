@@ -5,59 +5,112 @@ import {
   StyleSheet,
   Pressable,
   Text,
+  StatusBar,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function SplashScreen() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/splash.jpg")}
-        style={styles.image}
-        resizeMode="cover"
-      />
-      
+    <>
+      <StatusBar barStyle="light-content" />
 
-      <View style={styles.bottomContainer}>
-                         <Text className="text-white text-2xl flex justify-center bottom-10" >Smart Finance Tracking</Text>
+      <LinearGradient
+        colors={["#14532D", "#15803D", "#16A34A", "#4ADE80"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 0, y: 1 }}
+        style={styles.container}
+      >
+        {/* App Illustration */}
+        <View style={styles.imageContainer}>
+          <Image
+            source={require("../../assets/images/splash1.png")}
+            style={styles.image}
+            resizeMode="contain"
+          />
+        </View>
 
-        <Pressable
-          style={styles.button}
-          onPress={() => router.replace("/(auth)/sign-in")}
-        >
+        {/* Bottom Card */}
+        <View style={styles.card}>
+          <Text style={styles.title}>Smart Finance Tracking</Text>
 
+          <Text style={styles.subtitle}>
+            Track expenses, manage budgets, and achieve your financial goals
+            with ease.
+          </Text>
 
-          <Text style={styles.buttonText}>Get Started</Text>
-        </Pressable>
-      </View>
-    </View>
+          <Pressable
+            style={styles.button}
+            onPress={() => router.replace("/(auth)/sign-in")}
+          >
+            <Text style={styles.buttonText}>Get Started</Text>
+          </Pressable>
+        </View>
+      </LinearGradient>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#041A1A",
+    justifyContent: "space-between",
   },
-  image: {
+
+  imageContainer: {
     flex: 1,
-    width: "100%",
-    height: "100%",
-  },
-  bottomContainer: {
-    position: "absolute",
-    bottom: 50,
-    left: 20,
-    right: 20,
-  },
-  button: {
-    backgroundColor: "#10B981",
-    paddingVertical: 18,
-    borderRadius: 18,
+    justifyContent: "center",
     alignItems: "center",
+    paddingTop: 70,
+  },
+
+  image: {
+    width: "90%",
+    height: "70%",
+  },
+
+  card: {
+    backgroundColor: "#FFFFFF",
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+    paddingHorizontal: 28,
+    paddingTop: 35,
+    paddingBottom: 40,
+  },
+
+  title: {
+    fontSize: 30,
+    fontWeight: "800",
+    color: "#111827",
+    textAlign: "center",
+    marginBottom: 14,
+  },
+
+  subtitle: {
+    fontSize: 16,
+    color: "#6B7280",
+    textAlign: "center",
+    lineHeight: 24,
+    marginBottom: 30,
+  },
+
+  button: {
+    backgroundColor: "#16A34A",
+    height: 58,
+    borderRadius: 18,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#16A34A",
+    shadowOpacity: 0.35,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
     elevation: 6,
   },
+
   buttonText: {
-    color: "#fff",
+    color: "#FFFFFF",
     fontSize: 18,
     fontWeight: "700",
   },
