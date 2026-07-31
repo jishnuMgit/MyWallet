@@ -1,32 +1,22 @@
 import "../../../global.css";
 
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
 import { View } from "react-native";
-import { COLORS } from "../../../constants/theme";
 
 const TabIcon = ({
   focused,
-  name,
+  children,
 }: {
   focused: boolean;
-  name: keyof typeof Ionicons.glyphMap;
+  children: React.ReactNode;
 }) => (
   <View
-    style={{
-      width: 48,
-      height: 48,
-      borderRadius: 24,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: focused ? COLORS.primary : "transparent",
-    }}
+    className={`h-12 w-12 items-center justify-center rounded-full ${
+      focused ? "bg-green-600" : ""
+    }`}
   >
-    <Ionicons
-      name={name}
-      size={24}
-      color={focused ? "#fff" : "#8E8E93"}
-    />
+    {children}
   </View>
 );
 
@@ -39,95 +29,123 @@ export default function TabLayout() {
 
         tabBarStyle: {
           position: "absolute",
-          left: 10,
-          right: 10,
+          left: 12,
+          right: 12,
           bottom: 20,
           height: 72,
           backgroundColor: "#fff",
           borderTopWidth: 0,
           borderRadius: 36,
 
-          elevation: 12,
+          elevation: 0,
 
-          shadowColor: "#000",
-          shadowOffset: { width: 0, height: 8 },
-          shadowOpacity: 0.3,
+          shadowColor: "green",
+          shadowOffset: {
+            width: 0,
+            height: 8,
+          },
+          shadowOpacity: 0.15,
           shadowRadius: 12,
         },
 
         tabBarItemStyle: {
           flex: 1,
-        marginTop:15,
           justifyContent: "center",
           alignItems: "center",
-          
+          top: 15,
         },
       }}
     >
+      {/* Home */}
       <Tabs.Screen
         name="home"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} name="home" />
+            <TabIcon focused={focused}>
+              <Ionicons
+                name="home"
+                size={24}
+                color={focused ? "#fff" : "#8E8E93"}
+              />
+            </TabIcon>
           ),
         }}
       />
 
+      {/* Transactions */}
       <Tabs.Screen
         name="transactions"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} name="swap-horizontal" />
+            <TabIcon focused={focused}>
+              <Ionicons
+                name="swap-horizontal"
+                size={24}
+                color={focused ? "#fff" : "#8E8E93"}
+              />
+            </TabIcon>
           ),
         }}
       />
 
+      {/* Add */}
       <Tabs.Screen
         name="budget"
         options={{
           tabBarIcon: ({ focused }) => (
             <View
               style={{
-                width: 56,
-                height: 56,
-                borderRadius: 28,
+                marginTop: -18,
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: focused
-                  ? COLORS.primary
-                  : "transparent",
               }}
             >
-              <Ionicons
-                name="add"
-                size={30}
-                style={{
-                  textAlign: "center",
-                  lineHeight: 30,
-                  
-                }}
-className="border border-[#8E8E93] rounded-full p-1 shadow shadow-black/20"
-                color={focused ? "#fff" : "#8E8E93"}
-              />
+              <View
+                className={`h-14 w-14 items-center justify-center rounded-full border shadow shadow-black/20 ${
+                  focused
+                    ? "bg-green-600 border-green-600"
+                    : "bg-white border-gray-300"
+                }`}
+              >
+                <Ionicons
+                  name="add"
+                  size={30}
+                  color={focused ? "#fff" : "#8E8E93"}
+                />
+              </View>
             </View>
           ),
         }}
       />
 
-      <Tabs.Screen
-        name="assets"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} name="pie-chart" />
-          ),
-        }}
-      />
-
+      {/* Reports */}
       <Tabs.Screen
         name="reports"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} name="bar-chart" />
+            <TabIcon focused={focused}>
+              <Ionicons
+                name="pie-chart"
+                size={24}
+                color={focused ? "#fff" : "#8E8E93"}
+              />
+            </TabIcon>
+          ),
+        }}
+      />
+
+      {/* Settings */}
+      <Tabs.Screen
+        name="profile"
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused}>
+              <AntDesign
+                name="setting"
+                size={24}
+                color={focused ? "#fff" : "#8E8E93"}
+              />
+            </TabIcon>
           ),
         }}
       />

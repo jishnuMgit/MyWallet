@@ -1,14 +1,16 @@
-import { View, Text } from "react-native";
-    import { COLORS } from "../../../constants/theme";
+import { ScrollView, View } from "react-native";
+import Header from "../../../components/DashboardHome/Header";
+import SummaryGrid from "../../../components/DashboardHome/SummaryGrid";
+import SpendingChart from "../../../components/DashboardHome/SpendingChart";
+import RecentTransactions from "../../../components/DashboardHome/RecentTransactions";
 
 export default function Home() {
   return (
-   
-
-<View style={{ backgroundColor: COLORS.primary }}>
-   <Text className="text-5xl font-bold text-red-500">
-        NativeWind v5
-      </Text>
-      </View>
+    <ScrollView style={{ "height":"100%","backgroundColor":"#F8F8F8" }} className="pb-28" >
+      <Header />
+      <SummaryGrid/>
+      <SpendingChart/>
+      <RecentTransactions/>
+    </ScrollView>
   );
 }
