@@ -90,7 +90,7 @@ export default function TabLayout() {
 
       {/* Add */}
       <Tabs.Screen
-        name="budget"
+        name="AddTransctions"
         options={{
           tabBarIcon: ({ focused }) => (
             <View
