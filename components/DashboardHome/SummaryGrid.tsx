@@ -2,18 +2,22 @@ import React from "react";
 import { View, Text } from "react-native";
 import { FontAwesome, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
+import { Link, router } from "expo-router";
+
 const cards = [
   {
     title: "Income",
     amount: "₹ 1,20,000",
     icon: <FontAwesome name="rupee" size={16} color="#16A34A" />,
     bg: "bg-green-100",
+    link: "/income",
   },
   {
     title: "Expenses",
     amount: "₹ 75,410",
     icon: <Ionicons name="arrow-down" size={16} color="#EF4444" />,
     bg: "bg-red-100",
+    link: "/expense",
   },
   {
     title: "Savings",
@@ -26,9 +30,10 @@ const cards = [
       />
     ),
     bg: "bg-green-100",
+    link: "/goals",
   },
   {
-    title: "Net Worth",
+    title: "Assets",
     amount: "₹ 12,45,600",
     icon: (
       <MaterialCommunityIcons
@@ -38,15 +43,18 @@ const cards = [
       />
     ),
     bg: "bg-indigo-100",
+    link: "/assets",
   },
-];
+] as const;
+
 
 const SummaryGrid = () => {
   return (
     <View className="-mt-10 px-5">
       <View className="flex-row flex-wrap justify-between">
         {cards.map((item, index) => (
-          <View
+          <Link
+            href={item.link}
             key={index}
             className=" shoadow-xl shadow-black/20  w-[48%] bg-white rounded-3xl p-4 mb-4 shadow"
           >
@@ -67,7 +75,7 @@ const SummaryGrid = () => {
                 </Text>
               </View>
             </View>
-          </View>
+          </Link>
         ))}
       </View>
     </View>
