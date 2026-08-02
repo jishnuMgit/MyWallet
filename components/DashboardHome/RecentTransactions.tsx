@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import { FontAwesome5, MaterialIcons } from "@expo/vector-icons";
+import { Link, router } from "expo-router";
 
 const transactions = [
   {
@@ -77,11 +78,14 @@ const RecentTransactions = () => {
           Recent Transactions
         </Text>
 
+        <Link href="/transactions"
+        >
         <MaterialIcons
           name="keyboard-arrow-right"
           size={24}
           color="#9CA3AF"
         />
+        </Link>
       </View>
 
       <ScrollView

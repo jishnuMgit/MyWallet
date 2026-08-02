@@ -1,11 +1,10 @@
-import React from "react";
-import { View, Text, Pressable, ScrollView } from "react-native";
-import { router } from "expo-router";
 import {
-  MaterialCommunityIcons,
   FontAwesome5,
   Ionicons,
+  MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { router } from "expo-router";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
 const assets = [
   {
@@ -40,14 +39,14 @@ const assets = [
     iconColor: "#EAB308",
     route: "/assets/gold",
   },
-  {
-    title: "Crypto",
-    value: "₹ 1,25,400",
-    icon: "bitcoin",
-    color: "bg-sky-100",
-    iconColor: "#0EA5E9",
-    route: "/assets/index",
-  },
+  // {
+  //   title: "Crypto",
+  //   value: "₹ 1,25,400",
+  //   icon: "bitcoin",
+  //   color: "bg-sky-100",
+  //   iconColor: "#0EA5E9",
+  //   route: "/assets/Crypto",
+  // },
   {
     title: "Real Estate",
     value: "₹ 2,50,000",
@@ -56,41 +55,43 @@ const assets = [
     iconColor: "#16A34A",
     route: "/assets/realestate",
   },
+  {
+    title: "Vehicles",
+    value: "₹ 2,50,000",
+    icon: "car",
+    color: "bg-green-100",
+    iconColor: "#16A34A",
+    route: "/assets/vehicles",
+  },
 ];
 
 export default function Assets() {
   return (
     <ScrollView className="flex-1 bg-gray-100">
       {/* Header */}
-    {/* Header */}
-<View className="rounded-b-3xl bg-white px-5 pb-6 pt-14 shadow">
-  <View className="flex-row items-center justify-between">
-    <Pressable
-      onPress={() => router.push("/home")}
-      className="h-10 w-10 items-center justify-center rounded-full bg-gray-100"
-    >
-      <Ionicons name="chevron-back" size={22} color="#111827" />
-    </Pressable>
+      {/* Header */}
+      <View className="rounded-b-3xl bg-white px-5 pb-6 pt-14 shadow">
+        <View className="flex-row items-center justify-between">
+          <Pressable
+            onPress={() => router.push("/home")}
+            className="h-10 w-10 items-center justify-center rounded-full bg-gray-100"
+          >
+            <Ionicons name="chevron-back" size={22} color="#111827" />
+          </Pressable>
 
-    <Text className="flex-1 text-center text-2xl font-bold text-gray-900">
-      My Assets
-    </Text>
+          <Text className="flex-1 text-center text-2xl font-bold text-gray-900">
+            My Assets
+          </Text>
 
-    <Ionicons
-      name="notifications-outline"
-      size={24}
-      color="#374151"
-    />
-  </View>
+          <Ionicons name="notifications-outline" size={24} color="#374151" />
+        </View>
 
-  <Text className="mt-6 text-gray-500">
-    Total Assets Value
-  </Text>
+        <Text className="mt-6 text-gray-500">Total Assets Value</Text>
 
-  <Text className="mt-1 text-4xl font-bold text-gray-900">
-    ₹18,75,600
-  </Text>
-</View>
+        <Text className="mt-1 text-4xl font-bold text-gray-900">
+          ₹18,75,600
+        </Text>
+      </View>
 
       {/* Assets List */}
       <View className="p-5">
@@ -136,19 +137,15 @@ export default function Assets() {
               )}
 
               {item.icon === "bitcoin" && (
-                <FontAwesome5
-                  name="bitcoin"
-                  size={22}
-                  color={item.iconColor}
-                />
+                <FontAwesome5 name="bitcoin" size={22} color={item.iconColor} />
               )}
 
               {item.icon === "home" && (
-                <Ionicons
-                  name="home"
-                  size={24}
-                  color={item.iconColor}
-                />
+                <Ionicons name="home" size={24} color={item.iconColor} />
+              )}
+
+              {item.icon === "car" && (
+                <FontAwesome5 name="car" size={24} color={item.iconColor} />
               )}
             </View>
 
@@ -162,11 +159,7 @@ export default function Assets() {
               </Text>
             </View>
 
-            <Ionicons
-              name="chevron-forward"
-              size={22}
-              color="#9CA3AF"
-            />
+            <Ionicons name="chevron-forward" size={22} color="#9CA3AF" />
           </Pressable>
         ))}
       </View>

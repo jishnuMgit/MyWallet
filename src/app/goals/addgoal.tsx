@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const add_goal = () => {
+const addgoal = () => {
   return (
     <View>
       <Text>add_goal</Text>
@@ -9,4 +9,4 @@ const add_goal = () => {
   )
 }
 
-export default add_goal
+export default addgoal
