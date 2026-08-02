@@ -1,16 +1,17 @@
 {
   "expo": {
-    "name": "Money_tracking",
-    "slug": "Money_tracking",
+    "name": "Money tracking",
+    "slug": "Money_tracking_by_jishnu",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "moneytracking",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/images/icon.png"
     },
     "android": {
+      "package": "com.jishnu.moneytracking",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -21,9 +22,8 @@
     },
     "web": {
       "output": "static",
-            "bundler": "metro",
-
-      "favicon": "./assets/images/favicon.png"
+      "bundler": "metro",
+      "favicon": "./assets/images/icon.png"
     },
     "plugins": [
       "expo-router",
@@ -39,6 +39,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "7749b9c3-692d-41de-826d-5a4fc3cb6b2d"
+      }
     }
   }
 }
